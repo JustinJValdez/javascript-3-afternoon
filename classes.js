@@ -34,20 +34,15 @@ class Employee {
   this.first_name = first_name;
   this.last_name = last_name;
   this.email = email;
-  this.age = age
-
+  this.age = age;
   this.makeWidget=()=>{
-    return this.first_name + " " + this.last_name + " widget"
-  }
-  }
+    return this.first_name + " " + this.last_name + " Widget"
+  };
+  };
 
-}
+};
 
 var employee1 = new Employee("John", "Jacob", 'j@j.com', 55)
-console.log(employee1);
-employee1.makeWidget();
-console.log(employee1.makeWidget());
-
 
 
 ////////// PROBLEM 2 //////////
@@ -66,42 +61,30 @@ console.log(employee1.makeWidget());
   Call your new class Manager
 */
 
-class Manager {
-  constructor(first_name,last_name,email,age, reports){
-  this.first_name = first_name;
-  this.last_name = last_name;
-  this.email = email;
-  this.age = age
-  this.reports = []
-
-
-  this.makeWidget=()=>{
-    return this.first_name + " " + this.last_name + " widget"
-  }
-
-
-  this.hire=(employee)=>{
-    this.reports.push(employee)
-  }
-
-  this.fire =(employee)=>{
-    for(i=0; i<reports.length; i++){
-      if(reports[i] === employee){
-        reports.splice(i, 1);
-      }
-    }
-  }
-
-  Manager();
+class Manager extends Employee {
+  constructor(first_name,last_name,email,age,reports){
+    super(first_name,last_name,email,age);
+    this.reports = [];
+    this.makeWidget=()=>{
+    return this.first_name + " " + this.last_name + " widget";
   };
-  
 
-  
 
-  
+    this.hire=(employee)=>{
+      this.reports.push(employee)
+  };
 
-}
+    this.fire =(employee)=>{
+      this.reports=this.reports.filter((e,i)=>{
+      return i!= employee
+    })
+  };
 
+  };
+
+};
+
+var manager1 = new Manager('Bob','Bobson', 'B@b.com',12, employee1)
 
 
 ////////// PROBLEM 3 //////////
@@ -126,7 +109,87 @@ class Manager {
   Call your new class ProgressiveManager
 */
 
-//Code Here
+class ProgressiveManager extends Manager{
+  constructor(first_name,last_name,email,age, reports,title,bonus){
+    super(first_name,last_name,email,age, reports)
+    this.title = 'Not a manager';
+    this.bonus = 0;
+
+    this.makeWidget=()=>{
+      return this.first_name + " " + this.last_name + " widget";
+    };
+  
+    this.hire=(employee)=>{
+      this.reports.push(employee)
+
+      var x = this.reports.length
+      switch(true){
+        case (x == 0):
+          this.title = 'Not a manager';
+          break;
+
+        case(x < 4):
+          this.title = 'Barely Manager';
+          break;
+
+        case(x < 11):
+          this.title = 'Mostly Manager';
+          break;
+
+        case(x < 51):
+          this.title = "Manager";
+          break;
+        
+        case(x < 101):
+          this.title = "Manager Plus";
+          break;
+        
+        default:
+          this.title = 'Bestest Manager';
+          break;
+      
+      };
+
+    };
+  
+    this.fire =(employee)=>{
+      this.reports=this.reports.filter((e,i)=>{
+      return i!= employee
+    })
+      var x = this.reports.length;
+
+      switch (true) {
+
+          case (x == 0):
+              this.title = 'Bestest Manager';
+              break;
+
+          case (x < 4):
+              this.title = 'Barely Manager';
+              break;
+
+          case (x < 11):
+              this.title = 'Mostly Manager';
+              break;
+
+          case (x < 50):
+              this.title = 'Manager';
+              break;
+
+          case (x < 101):
+              this.title = 'Manager Plus';
+              break;
+
+          default:
+              this.title = 'Bestest Manager';
+              break;
+      }
+
+      
+      this.bonus +=100;
+    };
+  }
+}
 
 
 
@@ -153,6 +216,17 @@ class Manager {
         - The anonymous function should decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
 
-//Code Here
+class Machine {
+  constructor(widgets_made_count,wear_and_tear_count,needs_reboot){
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+
+    this.makeWidgets=(num)=>{
+      return this.widgets_made_count + num;
+    }
+
+  }
+}
 
 
