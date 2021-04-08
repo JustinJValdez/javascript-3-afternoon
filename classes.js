@@ -35,10 +35,12 @@ class Employee {
   this.last_name = last_name;
   this.email = email;
   this.age = age;
-  this.makeWidget=()=>{
+
+  };
+  makeWidget=()=>{
     return this.first_name + " " + this.last_name + " Widget"
   };
-  };
+ 
 
 };
 
@@ -68,20 +70,17 @@ class Manager extends Employee {
     this.makeWidget=()=>{
     return this.first_name + " " + this.last_name + " widget";
   };
+  };
 
-
-    this.hire=(employee)=>{
+    hire=(employee)=>{
       this.reports.push(employee)
   };
 
-    this.fire =(employee)=>{
+    fire =(employee)=>{
       this.reports=this.reports.filter((e,i)=>{
       return i!= employee
     })
   };
-
-  };
-
 };
 
 var manager1 = new Manager('Bob','Bobson', 'B@b.com',12, employee1)
@@ -114,12 +113,12 @@ class ProgressiveManager extends Manager{
     super(first_name,last_name,email,age, reports)
     this.title = 'Not a manager';
     this.bonus = 0;
-
-    this.makeWidget=()=>{
+  };
+    makeWidget=()=>{
       return this.first_name + " " + this.last_name + " widget";
     };
   
-    this.hire=(employee)=>{
+    hire=(employee)=>{
       this.reports.push(employee)
 
       var x = this.reports.length
@@ -152,7 +151,7 @@ class ProgressiveManager extends Manager{
 
     };
   
-    this.fire =(employee)=>{
+    fire =(employee)=>{
       this.reports=this.reports.filter((e,i)=>{
       return i!= employee
     })
@@ -188,7 +187,7 @@ class ProgressiveManager extends Manager{
       
       this.bonus +=100;
     };
-  }
+  
 }
 
 
@@ -221,29 +220,28 @@ class Machine {
     this.widgets_made_count = 0;
     this.wear_and_tear_count = 0;
     this.needs_reboot = false;
-  };
 
-  makeWidgets=(num)=>{
-    this.widgets_made_count += num; // not working
-    if(this.widgets_made_count === 50){
-     this.wear_and_tear_count += 1;
-      };
+  
+  };
+    makeWidgets=(num)=>{
+    this.widgets_made_count += num; 
+    this.wear_and_tear_count = Math.floor(this.widgets_made_count / 50);
   };
      
   
-    fixMachine=()=>{
-      this.needs_reboot = true; //works
+      fixMachine=()=>{
+      this.needs_reboot = true;
     };
 
-    reboot=()=>{
-      if(this.needs_reboot = true){
-      return function(){
-      this.wear_and_tear_count - 10 && this.needs_reboot === false;
-        }
-      }
+      reboot=()=>{
+        return ()=>{
+          this.wear_and_tear_count -= 10;
+          this.needs_reboot = false;
+        }; 
     };
-      
+  };
     
-};
+  
+
 
 

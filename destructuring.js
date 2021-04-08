@@ -112,10 +112,11 @@ largeNumbers=({first,second, third})=>{
 */
 
 numberGroups=({a,b,c})=>{
-  
-  return max(a,b,c)
-  
-
+  if(a.length > b.length && a.length > c.length){
+    return a;
+  } else if (b.length > c.length){
+    return b ;
+  } return c;
 }
 
 
