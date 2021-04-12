@@ -67,9 +67,10 @@ class Manager extends Employee {
   constructor(first_name,last_name,email,age,reports){
     super(first_name,last_name,email,age);
     this.reports = [];
-    this.makeWidget=()=>{
-    return this.first_name + " " + this.last_name + " widget";
+    
   };
+  makeWidget=()=>{
+    return this.first_name + " " + this.last_name + " widget";
   };
 
     hire=(employee)=>{
