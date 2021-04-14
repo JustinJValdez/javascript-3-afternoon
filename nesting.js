@@ -79,19 +79,12 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 removeDuplicates=()=>{
-  for(i=0; i<workplaceAccidents.length; i++){
-    console.log(workplaceAccidents[i]);
-    for(x=0; x<workplaceAccidents.length; i++){
-      if ( workplaceAccidents[i]=== workplaceAccidents[x]){
-        workplaceAccidents.splice(i,1);
-        i--;
-      }
-    }
-  }
-  return workplaceAccidents;
+  var a = [];
+    for (var i=0, l=workplaceAccidents.length; i<l; i++)
+        if (a.indexOf(workplaceAccidents[i]) === -1 && workplaceAccidents[i] !== '')
+            a.push(workplaceAccidents[i]);
+    return a;
 }
-
-
 
 ////////// PROBLEM 3 //////////
 
@@ -118,10 +111,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
-
-
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 ////////// PROBLEM 4 //////////
 
@@ -159,7 +150,12 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+recordCleaner=()=>{
+  for(i=0;i<myCar.accidents.length;i++){
+    if(myCar.accidents[])
+  }
+
+}
 
 
 
