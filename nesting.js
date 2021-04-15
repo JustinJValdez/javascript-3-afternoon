@@ -150,12 +150,26 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-recordCleaner=()=>{
+/*recordCleaner=()=>{
   for(i=0;i<myCar.accidents.length;i++){
-    if(myCar.accidents[])
+    if(myCar.accidents[i].atFaultForAccident === true){
+      return myCar.accidents[i].atFaultForAccident === false;
+    }
   }
 
-}
+}*/
+
+/*recordCleaner=(myCar)=>{
+  for(var key in myCar){
+    if(myCar.accidents[key].includes('atFaultForAccident') = true){
+      return myCar.accidents[key] = false;
+    }
+  } console.log(myCar.accidents);
+  return myCar;
+  
+ }*/
+
+ 
 
 
 
@@ -174,6 +188,16 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
     4. Return the modified numsArr.
 */
 
-//Code Here
+looper=()=>{
+  newNumsArr =[];
+  for(i=0;i<numsArr.length; i++){
+    if(numsArr % 2 === 0){
+      newNumsArr.push("even");
+    } else{
+      newNumsArr.push("odd");
+    }
+  }
+  return newNumsArr;
+}
 
 
